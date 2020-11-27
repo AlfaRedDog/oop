@@ -35,7 +35,11 @@ namespace oop_lab3.race
         }
         public Tuple<AGtransport, double> Start()
         {
+<<<<<<< HEAD
             if (VehicleOnRace.Count  < 2)
+=======
+            if (VehicleOnRace.Count < 2)
+>>>>>>> 8d68cb9db889ba0ff3d044f32c24b0d9f4a633dd
                 throw new CountException();
             double min = 0;
             AGtransport minVehicle = VehicleOnRace[0];
