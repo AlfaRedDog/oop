@@ -10,8 +10,8 @@ namespace oop_lab3
         {
             try
             {
-                // "A" - Air race, "G" - Ground race, "AG" - all vechicle race
-                Race race = new Race("AG", 1000);
+                // 1 - Air race, 2 - Ground race, 0 - all vechicle race
+                Race race = new Race(0, 1000);
                 race.AddVechicle(new magic_corvet());
                 race.AddVechicle(new metla());
                 race.AddVechicle(new stupa());
@@ -22,9 +22,9 @@ namespace oop_lab3
                 Tuple<AGtransport, double> b = race.Start();
                 //AGtransport a = new TwoHumpedCamel();
                 //Console.WriteLine(a.RaceTime(1000));
-                Console.WriteLine(b.Item1.Name());
+                Console.WriteLine(b.Item1.Name);
                 Console.WriteLine(b.Item2);
-                Race raceGround = new Race("A", 1000);
+                Race raceGround = new Race(1, 1000);
                 //raceGround.AddVechicle(new TwoHumpedCamel());
                 //raceGround.AddVechicle(new CamelFastwalker());
                 //raceGround.AddVechicle(new centaur());
@@ -41,7 +41,7 @@ namespace oop_lab3
                 //Console.WriteLine(raceGround.Res[2].Item2);
                 //Console.WriteLine(raceGround.Res[3].Item1.Name());
                 //Console.WriteLine(raceGround.Res[3].Item2);
-                Console.WriteLine(b.Item1.Name());
+                Console.WriteLine(b.Item1.Name);
                 Console.WriteLine(b.Item2);
             }
             catch (Exception e)

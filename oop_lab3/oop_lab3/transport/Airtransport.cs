@@ -5,16 +5,10 @@ using oop_lab3.transport;
 namespace oop_lab3.transport
 {
     public class magic_corvet : AGtransport
-    { 
-        public override string Name()
-        {
-            return "magic_carpet";
-        }
-        protected override double Speed()
-        {
-            return 10.0;
-        }
-        public override double RaceTime(int distance)
+    {
+        string AGtransport.Name => "magic carpet";
+        double AGtransport.Speed => 10.0;
+        public double RaceTime(int distance)
         {
             double DistanceReducer1 = 1 - 0.03;
             double DistanceReducer2 = 1 - 0.1;
@@ -22,64 +16,51 @@ namespace oop_lab3.transport
 
             if(distance <= 1000)
             {
-                return distance / Speed();
+                return distance / 10.0;
             }
             if(distance > 1000 && distance <= 5000)
             {
-                return distance * DistanceReducer1 / Speed();
+                return distance * DistanceReducer1 / 10.0;
             }
             if(distance > 5000 && distance <= 10000)
             {
-                return distance * DistanceReducer2 / Speed();
+                return distance * DistanceReducer2 / 10.0;
             }
-            return distance * DistanceReducer3 / Speed();
+            return distance * DistanceReducer3 / 10.0;
         }
-        public override string TypeOfVehicle()
+        public int TypeOfVehicle()
         {
-            return "A";
+            return 1;
         }
     }
     public class metla : AGtransport
     {
-        public override string Name()
-        {
-            return "metla";
-        }
-
-        protected override double Speed()
-        {
-            return 20.0;
-        }
-        public override double RaceTime(int distance)
+        string AGtransport.Name => "metla";
+        double AGtransport.Speed => 20.0;
+        public double RaceTime(int distance)
         {
             double DistanceReducer = 0.01;
             int range = 1000;
-            return distance * (1.0 - distance / range * DistanceReducer) / Speed();
+            return distance * (1.0 - distance / range * DistanceReducer) / 20.0;
         }
-        public override string TypeOfVehicle()
+        public int TypeOfVehicle()
         {
-            return "A";
+            return 1;
         }
     }
     public class stupa : AGtransport
     {
-        public override string Name()
-        {
-            return "stupa";
-        }
+        string AGtransport.Name => "stupa";
+        double AGtransport.Speed => 8.0;
 
-        protected override double Speed()
-        {
-            return 8.0;
-        }
-        public override double RaceTime(int distance)
+        public double RaceTime(int distance)
         {
             double DistanceReducer = 0.06;
-            return distance * (1.0 - DistanceReducer) / Speed();
+            return distance * (1.0 - DistanceReducer) / 8.0;
         }
-        public override string TypeOfVehicle()
+        public int TypeOfVehicle()
         {
-            return "A";
+            return 1;
         }
     }
 }

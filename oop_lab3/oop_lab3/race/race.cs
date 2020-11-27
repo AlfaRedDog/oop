@@ -5,30 +5,37 @@ using oop_lab3.transport;
 using oop_lab3.exceptions;
 namespace oop_lab3.race
 {
+    [Flags]
+    enum TypeRace
+    {
+        AG = 0,
+        AIR = 1,
+        GROUND = 2
+    }
     public class Race
     {
-        private string TypeOfRace;
+        private int TypeOfRace;
         public int Distance;
         private List<AGtransport> VehicleOnRace = new List<AGtransport>();
         public List<Tuple<AGtransport, double>> Res = new List<Tuple<AGtransport, double>>();
-        public Race(string type, int distance)
+        public Race(int type, int distance)
         {
             if (distance < 0)
                 throw new DistanceException();
-            if ((type != "A") && (type != "G") && (type != "AG"))
+            if (! Enum.IsDefined(typeof(TypeRace), type))
                 throw new TypeRaceException();
             Distance = distance;
             TypeOfRace = type;
         }
         public void AddVechicle(AGtransport a)
         {
-            if ((a.TypeOfVehicle() != TypeOfRace) && (TypeOfRace != "AG"))
+            if ((a.TypeOfVehicle() != TypeOfRace) && (TypeOfRace != 0))
                 throw new TypeTransportException();
             VehicleOnRace.Add(a);
         }
         public Tuple<AGtransport, double> Start()
         {
-            if (VehicleOnRace.Count == 0)
+            if (VehicleOnRace.Count  < 2)
                 throw new CountException();
             double min = 0;
             AGtransport minVehicle = VehicleOnRace[0];

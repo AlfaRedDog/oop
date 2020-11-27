@@ -4,11 +4,11 @@ using System.Text;
 
 namespace oop_lab3.transport
 {
-    public abstract class AGtransport
+    public interface AGtransport
     {
-        public abstract string Name();
-        protected abstract double Speed();
-        public abstract double RaceTime(int distance);
-        public abstract string TypeOfVehicle();
+        string Name { get;  }
+        double Speed { get; }
+        public double RaceTime(int distance);
+        public int TypeOfVehicle();
     }
 }
