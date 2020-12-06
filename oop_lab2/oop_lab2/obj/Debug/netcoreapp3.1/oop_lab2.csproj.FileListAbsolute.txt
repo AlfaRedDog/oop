@@ -1,0 +1,13 @@
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\bin\Debug\netcoreapp3.1\oop_lab2.exe
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\bin\Debug\netcoreapp3.1\oop_lab2.deps.json
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\bin\Debug\netcoreapp3.1\oop_lab2.runtimeconfig.json
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\bin\Debug\netcoreapp3.1\oop_lab2.runtimeconfig.dev.json
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\bin\Debug\netcoreapp3.1\oop_lab2.dll
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\bin\Debug\netcoreapp3.1\oop_lab2.pdb
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\obj\Debug\netcoreapp3.1\oop_lab2.csprojAssemblyReference.cache
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\obj\Debug\netcoreapp3.1\oop_lab2.AssemblyInfoInputs.cache
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\obj\Debug\netcoreapp3.1\oop_lab2.AssemblyInfo.cs
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\obj\Debug\netcoreapp3.1\oop_lab2.csproj.CoreCompileInputs.cache
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\obj\Debug\netcoreapp3.1\oop_lab2.dll
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\obj\Debug\netcoreapp3.1\oop_lab2.pdb
+C:\Users\mikhail\source\repos\oop_lab2\oop_lab2\obj\Debug\netcoreapp3.1\oop_lab2.genruntimeconfig.cache
