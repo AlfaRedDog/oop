@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using oop_lab2.product;
 using oop_lab2.Exceptions;
 namespace oop_lab2.Shop
 {
-    class StoreСomparison
+    class StoreСomparison : Store
     {
         public IEnumerable<Store> AllStore { get; set; }
 
@@ -23,13 +24,11 @@ namespace oop_lab2.Shop
             int MinPric = 0;
             foreach (var shop in AllStore)
             {
-                foreach(var element in shop.Allproducts)
+                var product = Allproducts.SingleOrDefault(element => ((element.produce == prod) && (element.price < MinPric) || (MinPric == 0)));
+                if(product != null)
                 {
-                    if ((element.produce == prod) && ((element.price < MinPric) || (MinPric == 0)))
-                    {
-                        MinPric = element.price;
-                        ShopName = shop.Name;
-                    }
+                    MinPric = product.price;
+                    ShopName = shop.Name;
                 }
             }
             if (ShopName == "")

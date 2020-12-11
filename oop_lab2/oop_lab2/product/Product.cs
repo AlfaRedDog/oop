@@ -8,9 +8,9 @@ namespace oop_lab2.product
     {
         public string Name { get; }
 
-        public int ID { get; }
+        public Guid ID { get; }
 
-        public Product(string name, int id)
+        public Product(string name, Guid id)
         {
             Name = name;
             ID = id;
@@ -18,7 +18,7 @@ namespace oop_lab2.product
         public Product()
         {
             Name = "";
-            ID = 0;
+            ID = Guid.NewGuid();
         }
     }
 }

@@ -2,26 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 using oop_lab2.product;
+using System.Linq;
 using oop_lab2.Exceptions;
 namespace oop_lab2.Shop
 {
     class Store
     {
+        public Guid ID { get; }
         public string Name { get; }
         public string adress { get; }
         public List<Consigment> Allproducts { get; set; }
 
-        public Store(string name, string adres)
+        public Store(string name, string adres, Guid id)
         {
             Name = name;
             adress = adres;
             Allproducts = new List<Consigment>();
+            ID = id;
         }
         public Store()
         {
             Name = "";
             adress = "";
             Allproducts = new List<Consigment>();
+            ID = Guid.NewGuid();
         }
         public void AddConsigment(Consigment consig)
         {
@@ -30,7 +34,7 @@ namespace oop_lab2.Shop
 
             foreach (var element in Allproducts)
             {
-                if (element.produce == consig.produce)
+                if (element.produce.ID == consig.produce.ID)
                 {
                     flag = true;
                     temp = element;
@@ -38,7 +42,7 @@ namespace oop_lab2.Shop
                 }
             }
 
-            if(flag == false)
+            if (flag == false)
                 Allproducts.Add(temp);
             else
             {
@@ -48,24 +52,19 @@ namespace oop_lab2.Shop
                 Allproducts.Add(temp);
             }
         }
-        public int BuyConsigment(Product a, int cont)
+        public int BuyConsigment(IEnumerable<Consigment> consig)
         {
-            Consigment temp = new Consigment();
-            foreach(var element in Allproducts)
+            int sum = 0;
+            foreach (var element in consig)
             {
-                if (element.produce == a)
-                    if (element.count >= cont)
-                    {
-                        temp = element;
-                        break;
-                    }
-                    else
-                        throw new BuyItemException();
+                var product = Allproducts.SingleOrDefault(item => item.produce.ID == element.produce.ID);
+                if((product != null) && (element.count <= product.count))
+                {
+                    product.count -= element.count;
+                    sum += element.count * product.price;
+                }
             }
-            Allproducts.Remove(temp);
-            temp.count -= cont;
-            Allproducts.Add(temp);
-            return temp.price * cont;
+            return sum;
         }
         public void HowMuchCanBuy(int cash)
         {

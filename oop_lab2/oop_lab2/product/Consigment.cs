@@ -19,7 +19,7 @@ namespace oop_lab2.product
             count = cont;
             price = pric;
         }
-        public Consigment(string name, int id, int cont, int pric)
+        public Consigment(string name, Guid id, int cont, int pric)
         {
             produce = new Product(name, id);
             if (cont <= 0)
