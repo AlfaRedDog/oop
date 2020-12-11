@@ -28,8 +28,8 @@ namespace oop_lab4.Tests
             //Console.WriteLine(a.Points.Peek().SavedFiles.Count);
             //Thread.Sleep(70000);
             a.CreateCompletePoint();
-            //a.CleanerConfigurator();
-            //Console.WriteLine(a.Points.Count);
+            a.CleanerConfigurator(new CleanerConfiguration(1, 200000, DateTime.Now.AddSeconds(3), GibridType.AndGibrid, CleanerType.CountCleaner));
+            Console.WriteLine(a.Count(a));
         }
         [Test]
         public void LargeCase()
@@ -39,10 +39,10 @@ namespace oop_lab4.Tests
             a.AddFile(Largepath2);
             a.CreateCompletePoint();
             a.CreateCompletePoint();
-            //Console.WriteLine(a.Points.Count);
+            Console.WriteLine(a.Count(a));
             Console.WriteLine(a.BackUpSize);
             a.CleanerConfigurator(new CleanerConfiguration(3, 200000, DateTime.Now.AddSeconds(3), GibridType.AndGibrid, CleanerType.SizeCleaner));
-            //Console.WriteLine(a.Points.Count);
+            Console.WriteLine(a.Count(a));
             Console.WriteLine(a.BackUpSize);
         }
         [Test]
@@ -63,7 +63,7 @@ namespace oop_lab4.Tests
             }
             a.CreateCompletePoint();
             a.CreateIncPoint();
-            //Console.WriteLine(a.Points.Count);
+            Console.WriteLine(a.Count(a));
             Console.WriteLine(a.BackUpSize);
         }
         [Test]
@@ -76,7 +76,7 @@ namespace oop_lab4.Tests
             a.CreateCompletePoint();
             a.CreateCompletePoint();
             a.CleanerConfigurator(new CleanerConfiguration(3, 10, DateTime.Now.AddSeconds(3), GibridType.AndGibrid, CleanerType.CountCleaner | CleanerType.SizeCleaner));
-            //Console.WriteLine(a.Points.Count);
+            Console.WriteLine(a.Count(a));
             Console.WriteLine(a.BackUpSize);
         }
         [Test]
@@ -90,7 +90,7 @@ namespace oop_lab4.Tests
             a.CreateCompletePoint();
             a.CleanerConfigurator(new CleanerConfiguration(3, 10, DateTime.Now.AddSeconds(3), GibridType.AndGibrid, CleanerType.AllTypeCleaner));
             a.CreateCompletePoint();
-            //Console.WriteLine(a.Points.Count);
+            Console.WriteLine(a.Count(a));
             Console.WriteLine(a.BackUpSize);
         }
     }

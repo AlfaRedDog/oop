@@ -213,5 +213,9 @@ namespace oop_lab4.BackUp
             TypeOfGibrid = conf.Gibrid;
             Cleaner();
         }
+        public int Count(BackUp a)
+        {
+            return a.Points.Count;
+        }
     }
 }
