@@ -9,11 +9,6 @@ namespace oop_lab4
     {
         static void Main(string[] args)
         {
-            
-            
-                //int Id, bool TypeOfStorage, CleanerType TypeClean, GibridType TypeGibrid, DateTime time
-                
-            
         }
     }
 }
