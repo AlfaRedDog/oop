@@ -85,10 +85,8 @@ namespace oop_lab4.BackUp
             IncRestorePoint temp = new IncRestorePoint(this);
             if (CreateSuccesful == true)
             {
-                //Console.WriteLine(temp.size);
                 LastPoint = temp;
                 Points.Enqueue(temp);
-                //Console.WriteLine(Points.Peek().size);
                 BackUpSize += temp.size;
             }
             Cleaner();

@@ -9,6 +9,8 @@ namespace oop_lab4.RestorePoint
         public long size { get; }
         public List<file> SavedFiles { get; }
         public DateTime CreationTime => DateTime.Now;
+        PointType RestrorePointInterface.TypePoint => PointType.Complete;
+
         public CompleteRestorePoint(BackUp.BackUp backup)
         {
             SavedFiles = new List<file>();

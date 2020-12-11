@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mikhail\\source\\repos\\oop_lab3\\oop_lab3\\oop_lab3.csproj",
+      "projectUniqueName": "C:\\Users\\mikhail\\Desktop\\oop_lab3\\oop_lab3\\oop_lab3\\oop_lab3.csproj",
       "projectName": "oop_lab3",
-      "projectPath": "C:\\Users\\mikhail\\source\\repos\\oop_lab3\\oop_lab3\\oop_lab3.csproj",
+      "projectPath": "C:\\Users\\mikhail\\Desktop\\oop_lab3\\oop_lab3\\oop_lab3\\oop_lab3.csproj",
       "packagesPath": "C:\\Users\\mikhail\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mikhail\\source\\repos\\oop_lab3\\oop_lab3\\obj\\",
+      "outputPath": "C:\\Users\\mikhail\\Desktop\\oop_lab3\\oop_lab3\\oop_lab3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mikhail\\AppData\\Roaming\\NuGet\\NuGet.Config",
