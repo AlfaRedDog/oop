@@ -84,6 +84,7 @@ namespace oop_lab4.BackUp
         public void CreateIncPoint()
         {
             IncRestorePoint temp = new IncRestorePoint(this);
+            //Console.WriteLine(CreateSuccesful);
             if (CreateSuccesful == true)
             {
                 LastPoint = temp;
@@ -215,10 +216,18 @@ namespace oop_lab4.BackUp
         {
             handler.Clear();
             CreateHandler();
+            //Console.WriteLine(Points.Count);
             if (Points.Count != 0)
             {
                 CleanerMetod met = handler[TypeOfCleaner];
                 met();
+                while ((Points.Count != 0) && (Points.Peek().TypePoint == PointType.Inc))
+                { 
+                        PointDeleter();
+                    if (Points.Count == 0)
+                        break;
+                }
+                //Cleaner();
             }
         }
     }

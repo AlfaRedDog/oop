@@ -61,8 +61,9 @@ namespace oop_lab4.Tests
             {
                 sw.WriteLine("snidd");
             }
-            a.CreateCompletePoint();
             a.CreateIncPoint();
+            //a.CreateCompletePoint();
+            a.CleanerConfigurator(new CleanerConfiguration(2, 30, DateTime.Now, GibridType.OrGibrid, CleanerType.CountCleaner));
             Console.WriteLine(a.Count(a));
             Console.WriteLine(a.WriteBackUpSize());
         }
