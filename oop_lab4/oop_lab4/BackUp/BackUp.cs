@@ -20,16 +20,16 @@ namespace oop_lab4.BackUp
     }
     public class BackUp
     {
-        int ID { get; }
-        public DateTime CreationTIme;
-        public double BackUpSize { get; set; }
-        public List<string> FilesToSave { get; set; }
+        private int ID { get; }
+        private DateTime CreationTIme;
+        private double BackUpSize { get; set; }
+        protected internal List<string> FilesToSave { get; set; }
         protected internal Queue<RestrorePointInterface> Points { get; set; }
         protected internal RestrorePointInterface LastPoint { get; set; }
-        public bool isFolder { get; }
-        public CleanerType TypeOfCleaner { get; set; }
-        public GibridType TypeOfGibrid { get; set; }
-        public CleanerConfiguration ConfigurationOfCleaner { get; set; }
+        private bool isFolder { get; }
+        private CleanerType TypeOfCleaner { get; set; }
+        private GibridType TypeOfGibrid { get; set; }
+        private  CleanerConfiguration ConfigurationOfCleaner { get; set; }
         protected internal bool CreateSuccesful { get; set; }
 
         public BackUp(int Id, bool TypeOfStorage, CleanerConfiguration Conf)
@@ -64,6 +64,15 @@ namespace oop_lab4.BackUp
         {
             FilesToSave.Remove(path);
         }
+
+        public double WriteBackUpSize()
+        {
+            return (BackUpSize);
+        }
+        public int Count(BackUp a)
+        {
+            return a.Points.Count;
+        }
         public void CreateCompletePoint()
         {
             CompleteRestorePoint temp = new CompleteRestorePoint(this);
@@ -83,129 +92,6 @@ namespace oop_lab4.BackUp
             }
             //Cleaner();
         }
-        private void Cleaner()
-        {
-            if (Points.Count != 0)
-            {
-                switch (TypeOfCleaner)
-                {
-                    case CleanerType.CountCleaner:
-                        if (Points.Count > ConfigurationOfCleaner.count)
-                        {
-                            BackUpSize -= Points.Peek().size;
-                            Points.Dequeue();
-                        }
-                        break;
-
-                    case CleanerType.SizeCleaner:
-                        if ((BackUpSize > ConfigurationOfCleaner.size))
-                        {
-                            BackUpSize -= Points.Peek().size;
-                            Points.Dequeue();
-                            Cleaner();
-                        }
-                        break;
-
-                    case CleanerType.TimeCleaner:
-                        if ((Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0))
-                        {
-                            BackUpSize -= Points.Peek().size;
-                            Points.Dequeue();
-                            Console.WriteLine("time complete");
-                            Cleaner();
-                        }
-                        break;
-
-                    case CleanerType.CountCleaner | CleanerType.SizeCleaner:
-                        if (TypeOfGibrid == GibridType.OrGibrid)
-                        {
-                            if ((Points.Count > ConfigurationOfCleaner.count) || (BackUpSize > ConfigurationOfCleaner.size))
-                            {
-                                BackUpSize -= Points.Peek().size;
-                                Points.Dequeue();
-                                Cleaner();
-                            }
-                        }
-                        else
-                        {
-                            if(TypeOfGibrid == GibridType.AndGibrid)
-                                if ((Points.Count > ConfigurationOfCleaner.count) && (BackUpSize > ConfigurationOfCleaner.size))
-                                {
-                                    BackUpSize -= Points.Peek().size;
-                                    Points.Dequeue();
-                                    Cleaner();
-                                }
-                        }
-                        break;
-
-                    case CleanerType.CountCleaner | CleanerType.TimeCleaner:
-                        if (TypeOfGibrid == GibridType.OrGibrid)
-                        {
-                            if ((Points.Count > ConfigurationOfCleaner.count) || (Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0))
-                            {
-                                BackUpSize -= Points.Peek().size;
-                                Points.Dequeue();
-                                Cleaner();
-                            }
-                        }
-                        else
-                        {
-                            if (TypeOfGibrid == GibridType.AndGibrid)
-                                if ((Points.Count > ConfigurationOfCleaner.count) && (Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0))
-                                {
-                                    BackUpSize -= Points.Peek().size;
-                                    Points.Dequeue();
-                                    Cleaner();
-                                }
-                        }
-                        break;
-
-                    case CleanerType.SizeCleaner | CleanerType.TimeCleaner:
-                        if (TypeOfGibrid == GibridType.OrGibrid)
-                        {
-                            if ((BackUpSize > ConfigurationOfCleaner.size) || (Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0))
-                            {
-                                BackUpSize -= Points.Peek().size;
-                                Points.Dequeue();
-                                Cleaner();
-                            }
-                        }
-                        else
-                        {
-                            if (TypeOfGibrid == GibridType.AndGibrid)
-                                if ((BackUpSize > ConfigurationOfCleaner.size) && (Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0))
-                                {
-                                    BackUpSize -= Points.Peek().size;
-                                    Points.Dequeue();
-                                   Cleaner();
-                                }
-                        }
-                        break;
-
-                    case CleanerType.AllTypeCleaner:
-                        if (TypeOfGibrid == GibridType.OrGibrid)
-                        {
-                            if ((BackUpSize > ConfigurationOfCleaner.size) || (Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0) || (Points.Count > ConfigurationOfCleaner.count))
-                            {
-                                BackUpSize -= Points.Peek().size;
-                                Points.Dequeue();
-                                Cleaner();
-                            }
-                        }
-                        else
-                        {
-                            if (TypeOfGibrid == GibridType.AndGibrid)
-                                if ((BackUpSize > ConfigurationOfCleaner.size) && (Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0) && (Points.Count > ConfigurationOfCleaner.count))
-                                {
-                                    BackUpSize -= Points.Peek().size;
-                                    Points.Dequeue();
-                                    Cleaner();
-                                }
-                        }
-                        break;
-                }
-            }
-        }
         public void CleanerConfigurator(CleanerConfiguration conf)
         {
             ConfigurationOfCleaner = conf;
@@ -213,9 +99,127 @@ namespace oop_lab4.BackUp
             TypeOfGibrid = conf.Gibrid;
             Cleaner();
         }
-        public int Count(BackUp a)
+
+        private bool CountCleanerChecker()
         {
-            return a.Points.Count;
+            if (Points.Count > ConfigurationOfCleaner.count)
+                return true;
+            return false;
+        }
+        private bool SizeCleanerChecker()
+        {
+            if ((BackUpSize > ConfigurationOfCleaner.size))
+                return true;
+            return false;
+        }
+        private bool TimeCleanerChecker()
+        {
+            if ((Points.Peek().CreationTime.CompareTo(ConfigurationOfCleaner.Deadlne) < 0))
+                return true;
+            return false;
+        }
+
+        private void PointDeleter()
+        {
+            BackUpSize -= Points.Peek().size;
+            Points.Dequeue();
+            Cleaner();
+        }
+        private delegate void CleanerMetod();
+        Dictionary<CleanerType, CleanerMetod> handler = new Dictionary<CleanerType, CleanerMetod>();
+
+        private void CreateHandler()
+        {
+            handler.Add(CleanerType.CountCleaner, CountCleaner);
+            handler.Add(CleanerType.SizeCleaner, SizeCleaner);
+            handler.Add(CleanerType.TimeCleaner, TimeCleaner);
+            handler.Add(CleanerType.CountCleaner | CleanerType.SizeCleaner, CountSizeCleaner);
+            handler.Add(CleanerType.CountCleaner | CleanerType.TimeCleaner, CountTimeCleaner);
+            handler.Add(CleanerType.SizeCleaner | CleanerType.TimeCleaner, SizeTimeCleaner);
+            handler.Add(CleanerType.AllTypeCleaner, AllCleaner);
+        }
+
+        private void CountCleaner()
+        {
+            if (CountCleanerChecker())
+                PointDeleter();
+        }
+        private void SizeCleaner()
+        {
+            if (SizeCleanerChecker())
+                PointDeleter();
+        }
+        private void TimeCleaner()
+        {
+            if (TimeCleanerChecker())
+                PointDeleter();
+        }
+
+        private void CountSizeCleaner()
+        {
+            if (TypeOfGibrid == GibridType.OrGibrid)
+            {
+                if (CountCleanerChecker() || SizeCleanerChecker())
+                    PointDeleter();
+            }
+            else
+            {
+                if (CountCleanerChecker() && SizeCleanerChecker())
+                    PointDeleter();
+            }
+        }
+        private void CountTimeCleaner()
+        {
+            if (TypeOfGibrid == GibridType.OrGibrid)
+            {
+                if (CountCleanerChecker() || TimeCleanerChecker())
+                    PointDeleter();
+            }
+            else
+            {
+                if (TypeOfGibrid == GibridType.AndGibrid)
+                    if (CountCleanerChecker() && TimeCleanerChecker())
+                        PointDeleter();
+            }
+        }
+        private void SizeTimeCleaner()
+        {
+            if (TypeOfGibrid == GibridType.OrGibrid)
+            {
+                if (SizeCleanerChecker() || TimeCleanerChecker())
+                    PointDeleter();
+            }
+            else
+            {
+                if (SizeCleanerChecker() && TimeCleanerChecker())
+                        PointDeleter();
+            }
+        }
+        private void AllCleaner()
+        {
+            
+            if (TypeOfGibrid == GibridType.OrGibrid)
+            {
+                if (CountCleanerChecker() || SizeCleanerChecker() || TimeCleanerChecker())
+                    PointDeleter();
+            }
+            else
+            {
+                if (CountCleanerChecker() && SizeCleanerChecker() && TimeCleanerChecker())
+                {
+                    PointDeleter();
+                }
+            }
+        }
+        private void Cleaner()
+        {
+            handler.Clear();
+            CreateHandler();
+            if (Points.Count != 0)
+            {
+                CleanerMetod met = handler[TypeOfCleaner];
+                met();
+            }
         }
     }
 }

@@ -40,10 +40,10 @@ namespace oop_lab4.Tests
             a.CreateCompletePoint();
             a.CreateCompletePoint();
             Console.WriteLine(a.Count(a));
-            Console.WriteLine(a.BackUpSize);
+            Console.WriteLine(a.WriteBackUpSize());
             a.CleanerConfigurator(new CleanerConfiguration(3, 200000, DateTime.Now.AddSeconds(3), GibridType.AndGibrid, CleanerType.SizeCleaner));
             Console.WriteLine(a.Count(a));
-            Console.WriteLine(a.BackUpSize);
+            Console.WriteLine(a.WriteBackUpSize());
         }
         [Test]
         public void IncCase()
@@ -64,7 +64,7 @@ namespace oop_lab4.Tests
             a.CreateCompletePoint();
             a.CreateIncPoint();
             Console.WriteLine(a.Count(a));
-            Console.WriteLine(a.BackUpSize);
+            Console.WriteLine(a.WriteBackUpSize());
         }
         [Test]
         public void GibridCase1()
@@ -75,9 +75,9 @@ namespace oop_lab4.Tests
             a.CreateCompletePoint();
             a.CreateCompletePoint();
             a.CreateCompletePoint();
-            a.CleanerConfigurator(new CleanerConfiguration(3, 10, DateTime.Now.AddSeconds(3), GibridType.AndGibrid, CleanerType.CountCleaner | CleanerType.SizeCleaner));
+            a.CleanerConfigurator(new CleanerConfiguration(3, 10, DateTime.Now.AddSeconds(3), GibridType.OrGibrid, CleanerType.CountCleaner | CleanerType.SizeCleaner));
             Console.WriteLine(a.Count(a));
-            Console.WriteLine(a.BackUpSize);
+            Console.WriteLine(a.WriteBackUpSize());
         }
         [Test]
         public void GibridCase2()
@@ -88,10 +88,11 @@ namespace oop_lab4.Tests
             a.CreateCompletePoint();
             a.CreateCompletePoint();
             a.CreateCompletePoint();
+            a.CreateCompletePoint();
             a.CleanerConfigurator(new CleanerConfiguration(3, 10, DateTime.Now.AddSeconds(3), GibridType.AndGibrid, CleanerType.AllTypeCleaner));
             a.CreateCompletePoint();
             Console.WriteLine(a.Count(a));
-            Console.WriteLine(a.BackUpSize);
+            Console.WriteLine(a.WriteBackUpSize());
         }
     }
 }
