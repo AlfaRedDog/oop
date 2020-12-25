@@ -1,0 +1,13 @@
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\obj\Debug\netcoreapp3.1\oop_lab5.csprojAssemblyReference.cache
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\obj\Debug\netcoreapp3.1\oop_lab5.AssemblyInfoInputs.cache
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\obj\Debug\netcoreapp3.1\oop_lab5.AssemblyInfo.cs
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\obj\Debug\netcoreapp3.1\oop_lab5.csproj.CoreCompileInputs.cache
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\bin\Debug\netcoreapp3.1\oop_lab5.exe
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\bin\Debug\netcoreapp3.1\oop_lab5.deps.json
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\bin\Debug\netcoreapp3.1\oop_lab5.runtimeconfig.json
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\bin\Debug\netcoreapp3.1\oop_lab5.runtimeconfig.dev.json
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\bin\Debug\netcoreapp3.1\oop_lab5.dll
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\bin\Debug\netcoreapp3.1\oop_lab5.pdb
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\obj\Debug\netcoreapp3.1\oop_lab5.dll
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\obj\Debug\netcoreapp3.1\oop_lab5.pdb
+C:\Users\mikhail\source\repos\oop_lab5\oop_lab5\obj\Debug\netcoreapp3.1\oop_lab5.genruntimeconfig.cache
