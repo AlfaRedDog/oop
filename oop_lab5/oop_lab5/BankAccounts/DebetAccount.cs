@@ -34,7 +34,6 @@ namespace oop_lab5.BankAccounts
             _Money = money;
             ProcentPerMonth = 0;
             ProcentOnMod = proc;
-            CalculateProcent();
         }
         void IAccount.AddMoney(double money)
         {
@@ -72,20 +71,11 @@ namespace oop_lab5.BankAccounts
             FirstDayOfMonth = DateTime.Now;
             LastDayAddProcent = DateTime.Now;
         }
-        public async void CalculateProcent()
+        public double CalculateProcent(DateTime date)
         {
-            //Console.WriteLine("snfjn");
-
-            await Task.Run(() =>
-             {
-                 //Console.WriteLine("snfjn");
-                 while (StopMod)
-                 {
-                     //Console.WriteLine(ProcentPerMonth);
-                     ACalculateProcentPerDay();
-                     AddprocentMonth();
-                 }
-             });
+            if (date >= DateCreate)
+                _Money += _Money * ((date - DateTime.Now).Days % 30 * ProcentOnMod / 100.0 / 12.0);
+            return _Money;
         }
     }
 }

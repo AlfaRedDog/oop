@@ -12,5 +12,6 @@ namespace oop_lab5.BankAccounts
         public void AddMoney(double money);
         public void SpendMoney(double money);
         public void TransferMoney(double money, IAccount recepient);
+        public double CalculateProcent(DateTime date);
     }
 }

@@ -87,5 +87,9 @@ namespace oop_lab5.Bank
         {
             return ClientList[ClientList.FindIndex(pers => pers == person)].AllAccounts.Find(acc => acc.GetID() == Id).MoneyValue();
         }
+        public double FoundProcent(Guid Id, ClientC person, DateTime date)
+        {
+            return ClientList[ClientList.FindIndex(pers => pers == person)].AllAccounts.Find(acc => acc.GetID() == Id).CalculateProcent(date);
+        }
     }
 }

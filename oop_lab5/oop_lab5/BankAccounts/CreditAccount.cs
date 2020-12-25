@@ -49,5 +49,10 @@ namespace oop_lab5.BankAccounts
         {
             return ID;
         }
+
+        double IAccount.CalculateProcent(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

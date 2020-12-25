@@ -48,9 +48,12 @@ namespace oop_lab5
                 Console.WriteLine(bank1.TakeMoneyValue(Id2, person2));
                 bank1.AddMoney(Id3, person2, 0);
                 Console.WriteLine(bank1.TakeMoneyValue(Id3, person2));
-                Thread.Sleep(41000);
+                
                 Console.WriteLine(bank1.TakeMoneyValue(Id3, person2));
-                bank1.SpendMoney(Id3, person2, 14);
+               // bank1.SpendMoney(Id3, person2, 14);
+                Console.WriteLine("fsdf");
+                Console.WriteLine(bank1.TakeMoneyValue(Id2, person2));
+                Console.WriteLine(bank1.FoundProcent(Id2, person2, DateTime.Now.AddDays(40)));
             }
             catch(Exception e)
             {
