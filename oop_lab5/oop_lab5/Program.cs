@@ -27,29 +27,29 @@ namespace oop_lab5
                 bank1.AddMoney(Id1, person1, 100);
                 bank1.AddMoney(Id2, person2, 150);
                 bank1.AddMoney(Id3, person2, 190);
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person1)].AllAccounts.Find(acc => acc.GetID() == Id1).MoneyValue());
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id2).MoneyValue());
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id3).MoneyValue());
+                Console.WriteLine(bank1.TakeMoneyValue(Id1, person1));
+                Console.WriteLine(bank1.TakeMoneyValue(Id2, person2));
+                Console.WriteLine(bank1.TakeMoneyValue(Id3, person2));
                 bank1.SpendMoney(Id2, person2, 12);
                 bank1.SpendMoney(Id1, person1, 15);
                 //bank1.SpendMoney(Id3, person2, 16);
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person1)].AllAccounts.Find(acc => acc.GetID() == Id1).MoneyValue());
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id2).MoneyValue());
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id3).MoneyValue());
+                Console.WriteLine(bank1.TakeMoneyValue(Id1, person1));
+                Console.WriteLine(bank1.TakeMoneyValue(Id2, person2));
+                Console.WriteLine(bank1.TakeMoneyValue(Id3, person2));
                 bank1.TransferMoney(Id1, Id2, person1, person2, 110);
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person1)].AllAccounts.Find(acc => acc.GetID() == Id1).MoneyValue());
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id2).MoneyValue());
+                Console.WriteLine(bank1.TakeMoneyValue(Id1, person1));
+                Console.WriteLine(bank1.TakeMoneyValue(Id2, person2));
                 bank1.TransferMoney(Id2, Id1, person2, person1, 20);
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person1)].AllAccounts.Find(acc => acc.GetID() == Id1).MoneyValue());
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id2).MoneyValue());
+                Console.WriteLine(bank1.TakeMoneyValue(Id1, person1));
+                Console.WriteLine(bank1.TakeMoneyValue(Id2, person2));
                 //-25 - 1 - comission
                 bank1.CancelTransaction(new CTransaction(20, person2, person1, Id2, Id1));
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person1)].AllAccounts.Find(acc => acc.GetID() == Id1).MoneyValue());
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id2).MoneyValue());
+                Console.WriteLine(bank1.TakeMoneyValue(Id1, person1));
+                Console.WriteLine(bank1.TakeMoneyValue(Id2, person2));
                 bank1.AddMoney(Id3, person2, 0);
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id3).MoneyValue());
+                Console.WriteLine(bank1.TakeMoneyValue(Id3, person2));
                 Thread.Sleep(41000);
-                Console.WriteLine(bank1.ClientList[bank1.ClientList.FindIndex(pers => pers == person2)].AllAccounts.Find(acc => acc.GetID() == Id3).MoneyValue());
+                Console.WriteLine(bank1.TakeMoneyValue(Id3, person2));
                 bank1.SpendMoney(Id3, person2, 14);
             }
             catch(Exception e)

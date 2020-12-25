@@ -18,8 +18,8 @@ namespace oop_lab5.Bank
         protected double CommisionForCredit = 5;
         protected double LimitForCredit = 100000;
         protected double MutnyTipLimit = 100;
-        public List<ClientC> ClientList { get; set; }
-        public List<CTransaction> TransactionList { get; set; }
+        protected List<ClientC> ClientList { get; set; }
+        protected List<CTransaction> TransactionList { get; set; }
         public Sber()
         { 
             ID = Guid.NewGuid();
@@ -82,6 +82,10 @@ namespace oop_lab5.Bank
             if (TransactionList.FindIndex(tran => tran == trans) != -1)
                 throw new NotFoundTransactionException();
             TransferMoney(trans.TakeSendertId(), trans.TakeRecepientId(), trans.TakeSender(), trans.TakeRecepient(), trans.TakeMoney());
+        }
+        public double TakeMoneyValue(Guid Id, ClientC person)
+        {
+            return ClientList[ClientList.FindIndex(pers => pers == person)].AllAccounts.Find(acc => acc.GetID() == Id).MoneyValue();
         }
     }
 }
